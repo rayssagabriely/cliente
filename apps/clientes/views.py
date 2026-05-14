@@ -91,11 +91,11 @@ def login_usuario(request):
 
 def novo_usuario(request):
     template_name = 'novo_usuario.html'
-    if request. method == 'post':
+    if request.method == 'POST':
         form = UsuarioForm(request.POST)
         if form.is_valid():
             f = form.save(commit=False)
-            f.set_passowd(f.passowrd)
+            f.set_password(f.password)
             f.save()
             return redirect('login_usuario')
         else:
